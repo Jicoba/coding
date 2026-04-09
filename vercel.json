@@ -1,24 +1,14 @@
-﻿{
+{
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "version": 2,
   "cleanUrls": true,
-  "builds": [
+  "rewrites": [
     {
-      "src": "*.html",
-      "use": "@vercel/static"
+      "source": "/calculator",
+      "destination": "/calculator.html"
     },
     {
-      "src": "*.css",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "data/*.csv",
-      "use": "@vercel/static"
+      "source": "/dashboard",
+      "destination": "/dashboard.html"
     }
   ]
 }
-
