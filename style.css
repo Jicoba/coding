@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg-1: #0b1220;
   --bg-2: #182945;
   --card: rgba(255, 255, 255, 0.08);
@@ -37,11 +37,23 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-h1 {
+.title-wrap {
   margin: 0 0 16px;
-  font-size: 1.1rem;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  color: #ffd166;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.25rem;
   letter-spacing: 0.04em;
-  color: var(--muted);
+  color: var(--text);
 }
 
 .display-wrap {
