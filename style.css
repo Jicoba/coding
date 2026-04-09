@@ -1,0 +1,105 @@
+:root {
+  --bg-1: #0b1220;
+  --bg-2: #182945;
+  --card: rgba(255, 255, 255, 0.08);
+  --text: #f3f6ff;
+  --muted: #9db0d1;
+  --btn: rgba(255, 255, 255, 0.12);
+  --btn-hover: rgba(255, 255, 255, 0.2);
+  --op: #ff9f43;
+  --eq: #34c759;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Noto Sans KR", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, var(--bg-2), var(--bg-1));
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.calc {
+  width: min(100%, 360px);
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.display-wrap {
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.history {
+  min-height: 20px;
+  text-align: right;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.display {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: right;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.display:focus { outline: none; }
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 12px;
+  height: 52px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--btn);
+  cursor: pointer;
+  transition: transform 0.06s ease, background 0.18s ease;
+}
+
+.btn:hover { background: var(--btn-hover); }
+.btn:active { transform: scale(0.97); }
+
+.func { color: #ffd166; }
+.op { background: color-mix(in srgb, var(--op) 28%, transparent); }
+.eq { background: color-mix(in srgb, var(--eq) 45%, transparent); }
+.zero { grid-column: span 2; }
+
+@media (max-width: 380px) {
+  .calc { padding: 14px; }
+  .btn { height: 48px; }
+}
