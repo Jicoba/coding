@@ -1,6 +1,25 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
   "cleanUrls": true,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "data/*.csv",
+      "use": "@vercel/static"
+    }
+  ],
   "rewrites": [
     {
       "source": "/calculator",
