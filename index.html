@@ -3,47 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jicoba Calculator</title>
+  <title>공무원연금공단 상담 통계 대시보드</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="page">
-    <section class="calc" aria-label="Calculator">
-      <header class="title-wrap">
-        <p class="eyebrow">JICOBA APP</p>
-        <h1>Calculator</h1>
-      </header>
-      <div class="display-wrap">
-        <div id="history" class="history" aria-live="polite"></div>
-        <input id="display" class="display" type="text" value="0" readonly />
+  <main class="dashboard">
+    <header class="hero reveal">
+      <p class="eyebrow">PENSION CALL CENTER</p>
+      <h1>공무원연금공단 상담 통계 대시보드</h1>
+      <p class="hero-sub">원본 데이터: 공무원연금공단_연금콜센터 상담내역정보_20221231.csv (웹용 UTF-8 변환본 사용)</p>
+    </header>
+
+    <section class="panel filters reveal delay-1" aria-label="필터 영역">
+      <div class="field">
+        <label for="yearFilter">연도</label>
+        <select id="yearFilter"></select>
       </div>
-      <div class="keys" role="group" aria-label="Calculator buttons">
-        <button data-action="clear" class="btn func">AC</button>
-        <button data-action="delete" class="btn func">DEL</button>
-        <button data-value="%" class="btn func">%</button>
-        <button data-value="/" class="btn op">÷</button>
-
-        <button data-value="7" class="btn">7</button>
-        <button data-value="8" class="btn">8</button>
-        <button data-value="9" class="btn">9</button>
-        <button data-value="*" class="btn op">×</button>
-
-        <button data-value="4" class="btn">4</button>
-        <button data-value="5" class="btn">5</button>
-        <button data-value="6" class="btn">6</button>
-        <button data-value="-" class="btn op">−</button>
-
-        <button data-value="1" class="btn">1</button>
-        <button data-value="2" class="btn">2</button>
-        <button data-value="3" class="btn">3</button>
-        <button data-value="+" class="btn op">+</button>
-
-        <button data-value="0" class="btn zero">0</button>
-        <button data-value="." class="btn">.</button>
-        <button data-action="equals" class="btn eq">=</button>
+      <div class="field">
+        <label for="typeFilter">상담유형</label>
+        <select id="typeFilter"></select>
+      </div>
+      <div class="field">
+        <label for="topN">TOP 개수</label>
+        <input id="topN" type="range" min="5" max="20" value="10" />
+        <span id="topNValue">10</span>
       </div>
     </section>
+
+    <section class="kpis reveal delay-2" aria-label="핵심 지표">
+      <article class="kpi-card">
+        <h2>총 상담건수</h2>
+        <p id="kpiTotal" class="kpi-value">-</p>
+      </article>
+      <article class="kpi-card">
+        <h2>레코드 수</h2>
+        <p id="kpiRows" class="kpi-value">-</p>
+      </article>
+      <article class="kpi-card">
+        <h2>상담유형 수</h2>
+        <p id="kpiTypes" class="kpi-value">-</p>
+      </article>
+      <article class="kpi-card">
+        <h2>상담세분류 수</h2>
+        <p id="kpiSubTypes" class="kpi-value">-</p>
+      </article>
+    </section>
+
+    <section class="grid reveal delay-3">
+      <article class="panel chart-panel">
+        <h2>연도별 상담건수</h2>
+        <div id="yearBars" class="bar-list"></div>
+      </article>
+      <article class="panel chart-panel">
+        <h2>상담유형 TOP</h2>
+        <div id="typeBars" class="bar-list"></div>
+      </article>
+      <article class="panel chart-panel wide">
+        <h2>상담분류 TOP</h2>
+        <div id="classBars" class="bar-list"></div>
+      </article>
+      <article class="panel chart-panel wide">
+        <h2>상담세분류 TOP</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>순위</th>
+                <th>상담세분류</th>
+                <th>상담건수</th>
+              </tr>
+            </thead>
+            <tbody id="subtypeTable"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <p id="status" class="status">데이터를 불러오는 중...</p>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
