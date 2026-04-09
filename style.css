@@ -33,6 +33,22 @@ body {
   margin: 28px auto 40px;
 }
 
+.page-nav {
+  display: inline-flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.page-nav a {
+  text-decoration: none;
+  color: #d4ecff;
+  border: 1px solid rgba(148, 211, 235, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+
 .hero {
   margin-bottom: 18px;
 }
@@ -257,6 +273,15 @@ tbody tr:hover {
   .dashboard {
     width: calc(100% - 20px);
     margin-top: 16px;
+  }
+
+  .page-nav {
+    width: 100%;
+  }
+
+  .page-nav a {
+    flex: 1;
+    text-align: center;
   }
 
   .filters {

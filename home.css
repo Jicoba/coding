@@ -1,0 +1,96 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap");
+
+:root {
+  --bg-1: #09203f;
+  --bg-2: #1a3b5d;
+  --card: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --text: #f4f9ff;
+  --muted: #bfd2ea;
+  --accent: #ffd166;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(255, 209, 102, 0.15), transparent 36%),
+    radial-gradient(circle at 90% 10%, rgba(89, 234, 214, 0.15), transparent 35%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2));
+}
+
+.home {
+  width: min(980px, calc(100% - 28px));
+  margin: 50px auto;
+}
+
+.hero {
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.desc {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.card {
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  backdrop-filter: blur(8px);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.card p {
+  margin: 10px 0 14px;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #0d223b;
+  background: linear-gradient(135deg, #ffd166, #ffea95);
+}
+
+@media (max-width: 720px) {
+  .home {
+    margin-top: 26px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
